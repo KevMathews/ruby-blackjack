@@ -14,3 +14,5 @@ class Player
       end
     
 end
+
+human = 
