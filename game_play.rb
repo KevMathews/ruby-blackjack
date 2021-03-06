@@ -14,3 +14,5 @@ new_deck.shuffle
   2.times do
     computer.get_cards(new_deck.deck.pop)
   end
+
+  

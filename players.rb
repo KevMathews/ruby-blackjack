@@ -5,7 +5,7 @@ class Player
     def start_game
         @cards = []
         @total = 0
-        @bankroll = 100
+        @bankroll = bankroll
         @name = name
     end
     def get_cards(card)
