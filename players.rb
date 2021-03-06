@@ -8,11 +8,11 @@ class Player
         @bankroll = bankroll
         @name = name
     end
-    def get_cards(card)
-        @cards << card
-        @total += card.value
-      end
+    # def get_cards
+    #     @cards << card
+    #     @total += card.value
+    #   end
     
 end
 
-human = 
+

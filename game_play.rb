@@ -1,6 +1,6 @@
-require 'card.rb'
-require 'deck.rb'
-require 'players.rd'
+require_relative "card.rb"
+require_relative "deck.rb"
+require_relative "players.rb"
 
 human = Player.new
 computer = Player.new

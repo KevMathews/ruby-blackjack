@@ -3,7 +3,7 @@ class Card
     attr_reader :rank, :suit
     attr_accessor :value
   
-    def initialize(rank, suit, value)
+    def initialize(rank, suit)
       @rank = rank
       @suit = suit
       @value = 0
