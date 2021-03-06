@@ -31,7 +31,7 @@
                 @name = name
             end
             def get_card(card)
-                # @cards << card
+                @cards << card
                 @total += card.value
               end
             
@@ -95,7 +95,7 @@
       
         def initialize
           @deck = []
-          # i create an empty array called deck and then for I create a new card and pass through a rank and suit and push them into the array
+          # i create an empty array called deck.  After that for I create a new card containing 1 of each suit and rank and push that into the deck
           SUITS.each do |suit|
             RANKS.each do |rank|
               @deck << Card.new(rank, suit)
@@ -109,16 +109,28 @@
     end
  # spawning the classes below here
     human = Player.new
-    computer = Player.new
+    dealer = Player.new
     new_deck = Deck.new
 
     # randomized the deck we created using shuffle method
     new_deck.shuffle
     
-    # prints the new fully shuffled deck that was created
-p new_deck
-      
+    # prints the new fully shuffled deck that was created      
+p new_deck  
 
+# prints a crad specifically from the deck
+p new_deck.deck[1]
+p new_deck.deck[50]
+
+2.times do
+    human.get_card(new_deck.deck.pop)
+  end
+  
+  2.times do
+    dealer.get_card(new_deck.deck.pop)
+  end
+
+p human
 
 #Gameplay
     #Player chooses their name
