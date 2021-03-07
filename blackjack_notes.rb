@@ -122,15 +122,15 @@ p new_deck
 p new_deck.deck[1]
 p new_deck.deck[50]
 
-2.times do
-    human.get_card(new_deck.deck.pop)
-  end
+# 2.times do
+#     human.get_card(new_deck.deck.pop)
+#   end
   
-  2.times do
-    dealer.get_card(new_deck.deck.pop)
-  end
 
-p human
+
+p'what is your name?'
+human.name = gets
+puts 'Hello ' + human.name 
 
 #Gameplay
     #Player chooses their name
