@@ -35,8 +35,6 @@
                 @name = name
             end
             def get_card deck
-                @cards = deck.sample(2)
-              end
                 #checks if deck array is empty, if it is, placeholder for a restart game method
                 #if deck array is full, it removes 2 cards from the deck array and assigns it to the cards property
                 deck.empty? ? ( p "No more cards, want to start another game?" ) : ( @cards = deck.shift(2) )
@@ -48,7 +46,7 @@
         #create the following accessable properties: *attr_accessor*
         #name
         #bankroll(start with 10,000)
-        #hand(array to store cards)
+        #hand(array to store cards) . 
 
     #card
         #create the following readable properties: 
@@ -117,26 +115,25 @@
  # spawning the classes below here
     human = Player.new
     human.bankroll = 100
-    computer = Player.new
     new_deck = Deck.new
-
+    computer = Player.new
+    computer.bankroll = 1000
     p new_deck.deck
+       new_deck.shuffle
     computer.get_card new_deck.deck
     human.get_card new_deck.deck
     p human 
     p computer
+ 
     # randomized the deck we created using shuffle method
-    p new_deck.deck.size
+   
     
     # prints the new fully shuffled deck that was created
 # p new_deck
 
-    computer = Player.new
-    computer.bankroll = 1000
-    new_deck = Deck.new
+
     # p new_deck.deck
-    computer.get_card new_deck.deck
-    human.get_card new_deck.deck
+
     # p human 
     # p computer
     # randomized the deck we created using shuffle method
@@ -174,23 +171,24 @@ puts 'Hello ' + human.name
 # # p human.cards[1].value
 # p both_cards
 human_hand = [human.cards[0].value, human.cards[0].suit, human.cards[1].value, human.cards[1].suit]
-p "#{human.name} is: #{human_hand}"
+puts "#{human.name} hand is: #{human_hand}"
 card_total = human.cards[0].value += human.cards[1].value
 computer_card_total = computer.cards[0].value += computer.cards[1].value
-p card_total
+puts card_total
 computer_hand = [computer.cards[0].value, computer.cards[0].suit, computer.cards[1].value, computer.cards[1].suit]
-p "computer hand is: #{computer_hand}"
+puts "computer hand is: #{computer_hand}"
 p computer_card_total
 if card_total > computer_card_total
     human.bankroll += 10 & computer.bankroll -= 10
-    p "#{human.name} wins! #{human.name} bankroll is #{human.bankroll}.   The computer bankroll is #{computer.bankroll}"
+    puts "#{human.name} wins! #{human.name} bankroll is #{human.bankroll}.   The computer bankroll is #{computer.bankroll}"
 end
 if computer_card_total > card_total
     computer.bankroll += 10 & human.bankroll -= 10
-    p "#{human.name} loses! #{human.name} bankroll is #{human.bankroll}, computer wins! computer bankroll is #{computer.bankroll}"
+    puts "#{human.name} loses! #{human.name} bankroll is #{human.bankroll}, computer wins! computer bankroll is #{computer.bankroll}"
 end
 if card_total == computer_card_total
-    p "it was a tie! #{human.name} bankroll is still #{human.bankroll} and computer bankroll is still #{computer.bankroll}"
+    puts "it was a tie! #{human.name} bankroll is still #{human.bankroll} and computer bankroll is still #{computer.bankroll}"
 end
+
 
 
