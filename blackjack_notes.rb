@@ -13,8 +13,12 @@
 
 ## MORE PRACTICE ADDING MY OWN DEV BRANCH- ONLY FOR WORKING ON MY MACHINE
 
+
 #Classes
-    #player
+    #Player
+        #main class
+
+    #Human - instance of Player class
         #create the following accessable properties: *attr_accessor*
         #name
         #bankroll(start with 100)
@@ -33,6 +37,10 @@
             def get_card deck
                 @cards = deck.sample(2)
               end
+                #checks if deck array is empty, if it is, placeholder for a restart game method
+                #if deck array is full, it removes 2 cards from the deck array and assigns it to the cards property
+                deck.empty? ? ( p "No more cards, want to start another game?" ) : ( @cards = deck.shift(2) )
+            end
             
         end
         # human = Player.new
@@ -109,6 +117,19 @@
  # spawning the classes below here
     human = Player.new
     human.bankroll = 100
+    computer = Player.new
+    new_deck = Deck.new
+
+    p new_deck.deck
+    computer.get_card new_deck.deck
+    human.get_card new_deck.deck
+    p human 
+    p computer
+    # randomized the deck we created using shuffle method
+    p new_deck.deck.size
+    
+    # prints the new fully shuffled deck that was created
+# p new_deck
 
     computer = Player.new
     computer.bankroll = 1000
