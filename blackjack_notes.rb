@@ -4,8 +4,6 @@
 
 ##  added by -Kevin
 
-##  added by -Kevin
-
 ##  more changes
 
 ##a RANDOM CHANGE 
@@ -29,16 +27,15 @@
             def start_game
                 @cards = []
                 @total = 0
-                @bankroll = 100
+                @bankroll = bankroll
                 @name = name
             end
-            def get_card(card)
-                @cards << card
-                @total += card.value
+            def get_card deck
+                @cards = deck.sample(2)
               end
             
         end
-        human = Player.new
+        # human = Player.new
     #house
         #create the following accessable properties: *attr_accessor*
         #name
@@ -91,24 +88,88 @@
     #empty array
     class Deck
         attr_reader :deck
+        # ranks/suits for each of the cards
         RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
-        SUITS = ['club', 'spade', 'heart', 'diamond']
+        SUITS = ['♣', '♠', '♥', '♦']
+      
+        def initialize
+          @deck = []
+          # i create an empty array called deck and then for I create a new card and pass through a rank and suit and push them into the array
+          SUITS.each do |suit|
+            RANKS.each do |rank|
+              @deck << Card.new(rank, suit)
+            end
+          end
+        end
+        #method to randomize the deck
+        def shuffle
+            @deck = @deck.shuffle
+        end
     end
+ # spawning the classes below here
+    human = Player.new
+    human.bankroll = 100
 
+    computer = Player.new
+    computer.bankroll = 1000
+    new_deck = Deck.new
+    # p new_deck.deck
+    computer.get_card new_deck.deck
+    human.get_card new_deck.deck
+    # p human 
+    # p computer
+    # randomized the deck we created using shuffle method
+    
+    
+    # prints the new fully shuffled deck that was created
+# p new_deck
+      
+p'what is your name?'
+human.name = gets
+puts 'Hello ' + human.name 
 #Gameplay
     #Player chooses their name
         #creates a new player class
     #Game start 
+
         #method: *deal* two random cards generated for house and player
-            #sample method (grabs random items from array)
+        # need a method to remove the cards taken so no card is taken twice 
+            #sample method (grabs random items from array) Kellie, Andrea
         #method: *add_cards* adds the two randomly generated cards for house and player
         #method: *compare* compare the total of cards generated for house and player 
+            #Allegra and Parker
         #method: *win* substracts 10 from the losing party and adds 10 to the winning party
+            ## bankroll- updating Kevin, Marsallis
             #tie > puts a message to the player. nothing is affected.
-        
+         #win Joe/
         ##consider writing a switch case statement to cover all situations
 
 #joe commit test goat
 #goat squad
 
 #andrea was here!
+# both_cards = [human.cards[0].value,  human.cards[1].value]
+# # p human.cards[0].value
+# # p human.cards[1].value
+# p both_cards
+human_hand = [human.cards[0].value, human.cards[0].suit, human.cards[1].value, human.cards[1].suit]
+p "#{human.name} is: #{human_hand}"
+card_total = human.cards[0].value += human.cards[1].value
+computer_card_total = computer.cards[0].value += computer.cards[1].value
+p card_total
+computer_hand = [computer.cards[0].value, computer.cards[0].suit, computer.cards[1].value, computer.cards[1].suit]
+p "computer hand is: #{computer_hand}"
+p computer_card_total
+if card_total > computer_card_total
+    human.bankroll += 10 & computer.bankroll -= 10
+    p "#{human.name} wins! #{human.name} bankroll is #{human.bankroll}.   The computer bankroll is #{computer.bankroll}"
+end
+if computer_card_total > card_total
+    computer.bankroll += 10 & human.bankroll -= 10
+    p "#{human.name} loses! #{human.name} bankroll is #{human.bankroll}, computer wins! computer bankroll is #{computer.bankroll}"
+end
+if card_total == computer_card_total
+    p "it was a tie! #{human.name} bankroll is still #{human.bankroll} and computer bankroll is still #{computer.bankroll}"
+end
+
+
