@@ -89,14 +89,14 @@
     class Deck
         attr_reader :deck
         # ranks/suits for each of the cards
-        RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
-        SUITS = ['♣', '♠', '♥', '♦']
+        Ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+        Suits = ['♣', '♠', '♥', '♦']
       
         def initialize
           @deck = []
           # i create an empty array called deck and then for I create a new card and pass through a rank and suit and push them into the array
-          SUITS.each do |suit|
-            RANKS.each do |rank|
+          Suits.each do |suit|
+            Ranks.each do |rank|
               @deck << Card.new(rank, suit)
             end
           end
@@ -116,10 +116,10 @@
     p human 
     p computer
     # randomized the deck we created using shuffle method
-    new_deck.shuffle
+    # new_deck.shuffle
     
     # prints the new fully shuffled deck that was created
-# p new_deck
+p new_deck
       
 
 
